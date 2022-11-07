@@ -1,0 +1,13 @@
+api   后端
+  -db 数据库
+  -router 路由
+  -router_handler 路由函数
+  schema 校验规则
+  app.js  启动文件
+  config.js 全局配置文件
+web   前端
+ -assets 样式和js
+ -home  投票界面和投票结果界面
+ -user  密码相关
+ index.html  主页
+ login.html 注册登录
