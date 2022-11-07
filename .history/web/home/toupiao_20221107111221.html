@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图表统计</title>
+    <link rel="stylesheet" href="/web/assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../web/assets/lib/bootstrap.css" />
+    <link rel="stylesheet" href="../../web/assets/lib/main.css" />
+    <script src="../../web/assets/lib/jquery.js"></script>
+    <script type="text/javascript" src="../../web/assets/lib/echarts.min.js"></script>
+    <style>
+        #title {
+            text-align: center;
+        }
+        
+        #tou {
+            padding-top: 30px;
+            margin-left: 230px;
+        }
+    </style>
+</head>
+<!-- 这里使用了一张背景，注释掉了。
+<body style="background-image:url(body.jpeg); background-size:100%; background-repeat: no-repeat;">
+ -->
+
+<body>
+    <div id="main" style="margin:40px ;">
+        <div id="title">
+            <h3>关于番茄感官评价定量分析投票</h3>
+        </div>
+        <div id="tou">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">咸味</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="salty" value="0" title="0级">
+                        <input type="radio" name="salty" value="1" title="1级">
+                        <input type="radio" name="salty" value="2" title="2级">
+                        <input type="radio" name="salty" value="3" title="3级">
+                        <input type="radio" name="salty" value="4" title="4级">
+                        <input type="radio" name="salty" value="5" title="5级" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">番茄味</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="tomato_flavor" value="0" title="0级">
+                        <input type="radio" name="tomato_flavor" value="1" title="1级">
+                        <input type="radio" name="tomato_flavor" value="2" title="2级">
+                        <input type="radio" name="tomato_flavor" value="3" title="3级">
+                        <input type="radio" name="tomato_flavor" value="4" title="4级">
+                        <input type="radio" name="tomato_flavor" value="5" title="5级" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">淀粉味</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="raw_starchFlavor" value="0" title="0级">
+                        <input type="radio" name="raw_starchFlavor" value="1" title="1级">
+                        <input type="radio" name="raw_starchFlavor" value="2" title="2级">
+                        <input type="radio" name="raw_starchFlavor" value="3" title="3级">
+                        <input type="radio" name="raw_starchFlavor" value="4" title="4级">
+                        <input type="radio" name="raw_starchFlavor" value="5" title="5级" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">脆度</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="brittleness" value="0" title="0级">
+                        <input type="radio" name="brittleness" value="1" title="1级">
+                        <input type="radio" name="brittleness" value="2" title="2级">
+                        <input type="radio" name="brittleness" value="3" title="3级">
+                        <input type="radio" name="brittleness" value="4" title="4级">
+                        <input type="radio" name="brittleness" value="5" title="5级" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">甜味</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sweet_taste" value="0" title="0级">
+                        <input type="radio" name="sweet_taste" value="1" title="1级">
+                        <input type="radio" name="sweet_taste" value="2" title="2级">
+                        <input type="radio" name="sweet_taste" value="3" title="3级">
+                        <input type="radio" name="sweet_taste" value="4" title="4级">
+                        <input type="radio" name="sweet_taste" value="5" title="5级" checked>
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="/web/assets/lib/layui/layui.all.js"></script>
+    <script src="/web/assets/lib/jquery.js"></script>
+    <script src="/web/assets/js/baseAPI.js"></script>
+    <script>
+        $(function() {
+            $('.layui-form').on('submit', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    method: 'post',
+                    url: '/my/results',
+                    data: $(this).serialize().split('&'),
+
+                    success: function(res) {
+                        // if (res.status !== 0) {
+                        //     console.log(res)
+                        //     return layui.layer.msg('更新密码失败')
+
+                        // }
+                        console.log(this.data)
+                        console.log(res)
+                            // layui.layer.msg('更新密码成功')
+
+                        // 重置表单
+                        // $('.layui-form')[0].reset()
+                    }
+
+                })
+            })
+        })
+    </script>
+</body>
+
+
+
+</html>

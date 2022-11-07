@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图表统计</title>
+    <link rel="stylesheet" href="/web/assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="../../web/assets/lib/bootstrap.css" />
+    <link rel="stylesheet" href="../../web/assets/lib/main.css" />
+    <script src="../../web/assets/lib/jquery.js"></script>
+    <script type="text/javascript" src="../../web/assets/lib/echarts.min.js"></script>
+    <style>
+        #title {
+            text-align: center;
+        }
+        
+        #tou {
+            padding-top: 30px;
+            margin-left: 230px;
+        }
+    </style>
+</head>
+<!-- 这里使用了一张背景，注释掉了。
+<body style="background-image:url(body.jpeg); background-size:100%; background-repeat: no-repeat;">
+ -->
+
+<body>
+    <div id="main" style="margin:40px ;">
+        <div id="title">
+            <h3>关于番茄感官评价定量分析投票</h3>
+        </div>
+        <div id="tou">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">咸味</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="男" title="0级">
+                        <input type="radio" name="sex" value="男" title="1级">
+                        <input type="radio" name="sex" value="男" title="2级">
+                        <input type="radio" name="sex" value="男" title="3级">
+                        <input type="radio" name="sex" value="男" title="4级">
+                        <input type="radio" name="sex" value="女" title="5级" checked>
+                    </div>
+                    <label class="layui-form-label">番茄味</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="男" title="0级">
+                        <input type="radio" name="sex" value="男" title="1级">
+                        <input type="radio" name="sex" value="男" title="2级">
+                        <input type="radio" name="sex" value="男" title="3级">
+                        <input type="radio" name="sex" value="男" title="4级">
+                        <input type="radio" name="sex" value="女" title="5级" checked>
+                    </div>
+                </div>
+                <!-- <div class="layui-form-item">
+                    <label class="layui-form-label">番茄味</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="男" title="0级">
+                        <input type="radio" name="sex" value="男" title="1级">
+                        <input type="radio" name="sex" value="男" title="2级">
+                        <input type="radio" name="sex" value="男" title="3级">
+                        <input type="radio" name="sex" value="男" title="4级">
+                        <input type="radio" name="sex" value="女" title="5级" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">淀粉味</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="男" title="0级">
+                        <input type="radio" name="sex" value="男" title="1级">
+                        <input type="radio" name="sex" value="男" title="2级">
+                        <input type="radio" name="sex" value="男" title="3级">
+                        <input type="radio" name="sex" value="男" title="4级">
+                        <input type="radio" name="sex" value="女" title="5级" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">脆度</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="男" title="0级">
+                        <input type="radio" name="sex" value="男" title="1级">
+                        <input type="radio" name="sex" value="男" title="2级">
+                        <input type="radio" name="sex" value="男" title="3级">
+                        <input type="radio" name="sex" value="男" title="4级">
+                        <input type="radio" name="sex" value="女" title="5级" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">甜味</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="男" title="0级">
+                        <input type="radio" name="sex" value="男" title="1级">
+                        <input type="radio" name="sex" value="男" title="2级">
+                        <input type="radio" name="sex" value="男" title="3级">
+                        <input type="radio" name="sex" value="男" title="4级">
+                        <input type="radio" name="sex" value="女" title="5级" checked>
+                    </div>
+                </div> -->
+
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <!-- <div align="center"><img src="head2.jpg" /></div> -->
+    <!-- <div align="center">
+        <h4>关于番茄感官评价定量分析投票</h4>
+        <table id="main">
+            <tr>
+                <td>
+                    <input type="radio" name="option" checked="checked" />咸味
+                </td>
+            </tr>
+            <tr>
+                <td style="width:550px">
+                    <div id=0 style="background-color:#acd6ff; width:0; height:20px; border-width:0px;">
+                    </div>
+                </td>
+                <td>
+                    <label id="label0">0</label>票
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" />番茄味
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id=1 style="background-color:#0066cc; height:20px; width:0; border-width:0px; border-color:blue; border-style:solid ; text-align:right;"></div>
+
+                </td>
+                <td>
+                    <label id="label1">0</label>票
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" />生淀粉味
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id=2 style="background-color:#ff7575; height:20px;width:0;  border-width:0px; border-color:blue; border-style:solid ; text-align:right;"></div>
+
+                </td>
+                <td>
+                    <label id="label2">0</label>票
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" />脆
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id=3 style="background-color:#5cadad;height:20px;width:0; border-width:0px; border-color:blue; border-style:solid ; text-align:right;"></div>
+
+                </td>
+                <td>
+                    <label id="label3">0</label>票
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="option" />甜
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id=3 style="background-color:#5cadad;height:20px;width:0; border-width:0px; border-color:blue; border-style:solid ; text-align:right;"></div>
+
+                </td>
+                <td>
+                    <label id="label3">0</label>票
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>
+                        <input type="submit" value="确认投票" οnclick="vote()" />
+                </td>
+            </tr>
+        </table>
+    </div> -->
+    <script src="/web/assets/lib/layui/layui.all.js"></script>
+    <script src="/web/assets/lib/jquery.js"></script>
+    <script src="/web/assets/js/baseAPI.js"></script>
+</body>
+<!-- <script type="text/javascript">
+    //在每个投票选项后面写了个div，用div的宽度来代表当前该选项的投票数。
+    function vote() { //函数vote，当点击确认投票的时候，调用vote方法
+
+        //for循环的条件是，所有投票选项的个数。
+        for (var i = 0; i < document.getElementsByName("option").length; i++) {
+
+            //查找到是哪个投票选项被选中
+            if (document.getElementsByName("option")[i].checked == true) {
+                var width = document.getElementById(i).style.width; //获取到当前选项的宽度。
+                width = parseInt(width); //将宽度转化为int型，因为获取到的width的单位是px
+                width += 3; //改变width的值，这里就是定义每次投票的进度条的增速
+                document.getElementById(i).style.width = width + "px"; //修改原div的宽度
+
+                var label = "label" + i; //lable标签里面写的是当前的投票数目。
+                var num = document.getElementById(label).innerText; //获取到当前的票数
+                document.getElementById(label).innerText = ++num; //票数加1，并修改原值
+            }
+        }
+
+        //alert("投票成功");
+
+    }
+</script> -->
+
+</html>
